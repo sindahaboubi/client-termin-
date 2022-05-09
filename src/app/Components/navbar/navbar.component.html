@@ -1,0 +1,21 @@
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">ArtSpace</a>
+            <div class="" *ngIf="client!=null">
+                {{client.nom}}
+            </div>
+            <div class="" *ngIf="artiste!=null">
+                {{artiste.nom}}
+            </div>
+                <form class="d-flex me-2">
+                    <mat-form-field appearance="legacy" class="">
+                        <mat-label>Rechercher</mat-label>
+                        <input matInput placeholder="Service">
+                        <mat-icon matSuffix>search</mat-icon>
+                      </mat-form-field>
+                    <button class="btn btn-outline-success h-10 m-2"  type="submit">Search</button>
+                    <button (click)="openDialog()" class="btn btn-outline-secondary h-10 m-2" >S'authentifier</button>
+                    <button *ngIf="client!=null || artiste!=null" (click)="logout()" class="btn btn-outline-secondary h-10 m-2" >Logout</button>
+                </form>
+        </div>
+    </nav>

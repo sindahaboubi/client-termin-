@@ -1,0 +1,74 @@
+<nav width="100%" style="text-align:center;background-repeat:no-repeat;background-image: url('https://contemporain.com/images/dossiers/art/mouvement-contemporain-xl.jpg')">
+<form [formGroup]="FormTri" (ngSubmit)="onSubmit()">
+    <strong>categorie du service:</strong>
+    <div *ngFor="let c of categories">
+        <span margin="2%">{{c.libelle}} </span><input type="radio" id="cat" formControlName="categorie" [value]="c.id">
+    </div>
+    <strong>prix max du service  :</strong><br>
+    <input type="number" formControlName="prixMax" ><br>
+    <strong>prix min du service  :</strong><br>
+    <input type="number" formControlName="prixMin" ><br>
+<strong>supprimer mon choix </strong>
+<input type="checkbox" formControlName="choix" [value]="1">
+<br>
+    <button type="submit" class="btn btn-outline-primary" [disabled]="FormTri.invalid" >
+    Enregistrer
+    </button>
+    </form>
+</nav>
+<div class="container">
+<section>
+    <div class="row" *ngIf="tabServiceFiltre?.length==tabService?.length">
+        <div class="col-sm-4" *ngFor= "let p of tabService">
+          <div class="card m-3" >
+              <div class="card-head text-center">
+                  <strong><u>{{p.titre}}</u></strong>
+              </div>
+                  <div class="card-body">
+                      <img [src]=p.image width="70%" height="70%" style="position:relative;left:15%">
+                  </div>
+              <div class="container row card-title">
+                  <div class="example-button-container">
+                      <div *ngFor="let c of categories">
+                      <strong *ngIf="c.id==p.cat">Categorie: {{c.libelle}}</strong><br>
+                      </div>
+                      <strong>Description: </strong>
+                      {{p.description}}<br>
+                      <strong><i></i>Prix: </strong>{{p.prix}}
+                  </div>
+              </div>
+                  <div class="card-footer">           
+                      <button class="btn btn-outline-warning" style="position:relative;left:75%" [routerLink]="['/liste',p.id]" >Details</button>
+                  </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="tabServiceFiltre?.length<tabService?.length">
+        <div class="col-sm-4" *ngFor= "let p of tabServiceFiltre">
+          <div class="card m-3" >
+              <div class="card-head text-center">
+                  <strong><u>{{p.titre}}</u></strong>
+              </div>
+                  <div class="card-body">
+                      <img [src]=p.image width="70%" height="70%" style="position:relative;left:15%">
+                  </div>
+              <div class="container row card-title">
+                  <div class="example-button-container">
+                      <div *ngFor="let c of categories">
+                      <strong *ngIf="c.id==p.cat">Categorie: {{c.libelle}}</strong><br>
+                      </div>
+                      <strong>Description: </strong>
+                      {{p.description}}<br>
+                      <strong><i></i>Prix: </strong>{{p.prix}}
+                  </div>
+              </div>
+                  <div class="card-footer">           
+                      <button class="btn btn-outline-warning" style="position:relative;left:75%" [routerLink]="['/liste',p.id]" >Details</button>
+                  </div>
+          </div>
+        </div>
+      </div>
+
+</section>
+</div>

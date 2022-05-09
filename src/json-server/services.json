@@ -1,0 +1,164 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "description": "exemple de portrait",
+      "prix": 0.45,
+      "titre": "supernova",
+      "dateCrea": "2022-02-09",
+      "etat": "",
+      "cat": 1,
+      "idArtiste": 1,
+      "image": "assets/img1.jpg",
+      "hauteur": 54,
+      "largeur": 60
+    },
+    {
+      "id": 2,
+      "description": "exemple de portrait2",
+      "prix": 1,
+      "titre": "supernova2",
+      "dateCrea": "2022-02-09",
+      "etat": "dispo",
+      "cat": 1,
+      "idArtiste": 1,
+      "image": "assets/img1.jpg",
+      "hauteur": 54,
+      "largeur": 60
+    }
+  ],
+  "categorie": [
+    {
+      "id": 1,
+      "libelle": "test1"
+    },
+    {
+      "id": 2,
+      "libelle": "test2"
+    }
+  ],
+  "commentaire": [
+    {
+      "id": 2,
+      "idClient": 4,
+      "idService": 1,
+      "description": "Exemple de commentaire"
+    },
+    {
+      "id": 3,
+      "idClient": 7,
+      "idService": 1,
+      "description": "Exemple de commentaire"
+    },
+    {
+      "id": 4,
+      "idClient": 9,
+      "idService": 1,
+      "description": "Exemple de commentaire"
+    },
+    {
+      "id": 5,
+      "idClient": 1,
+      "idService": "1",
+      "description": "test"
+    },
+    {
+      "id": 7,
+      "idClient": 1,
+      "idService": "1",
+      "description": "test"
+    },
+    {
+      "id": 8,
+      "idClient": 1,
+      "idService": "1",
+      "description": "test"
+    },
+    {
+      "id": 9,
+      "idClient": 1,
+      "idService": "2",
+      "description": "bon travail !"
+    },
+    {
+      "id": 10,
+      "idClient": 1,
+      "idService": "2",
+      "description": "bon travail !"
+    }
+  ],
+  "signalement": [
+    {
+      "id": 1,
+      "idClient": 1,
+      "idService": null,
+      "idCommentaire": 1,
+      "description": "ssss"
+    },
+    {
+      "id": 2,
+      "idClient": 1,
+      "idService": "1",
+      "idCommentaire": null,
+      "description": "dddd"
+    },
+    {
+      "id": 3,
+      "idClient": 1,
+      "idService": null,
+      "idCommentaire": 3,
+      "description": "nullle"
+    }
+  ],
+  "clients": [
+    {
+      "id": "1",
+      "email": "ahmed@yahoo.com",
+      "password": "client",
+      "nom": "Abidi",
+      "prenom": "amine",
+      "dateNaissance": "2001-08-08T21:12:09.471Z",
+      "genre": "h",
+      "etat": "client",
+      "image": "/assets/client/c2.jpg"
+    },
+    {
+      "id": "2",
+      "email": "siwar14@gmail.com",
+      "password": "siwar147",
+      "nom": "Ouni",
+      "prenom": "Siwar",
+      "dateNaissance": "1995-05-08T21:12:09.471Z",
+      "genre": "f",
+      "etat": "client",
+      "image": "/assets/client/c1.jpg"
+    }
+  ],
+  "artistes": [
+    {
+      "id": "1",
+      "email": "artiste",
+      "password": "artiste",
+      "nom": "artiste",
+      "prenom": "artiste",
+      "dateNaissance": "artiste",
+      "genre": "artiste",
+      "etat": "artiste"
+    }
+  ],
+  "commandes": [
+    {
+      "idClient": "1",
+      "idService": 2,
+      "description": "ena nour",
+      "dateCommande": "2022-05-08T18:28:04.359Z",
+      "id": 1
+    }
+  ],
+  "factures": [
+    {
+      "idCommande": 1,
+      "id": 1
+    }
+  ]
+}

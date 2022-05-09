@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="col-lg-8 border p-3 main-section bg-white">
+        <div class="row m-0">
+            <div class="col-lg-5 left-side-product-box pb-3">
+                <img [src]="currentProduit.image" class="border p-3">
+            </div>
+            <div class="col-lg-7">
+                <div class="right-side-pro-detail border p-3 m-0">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="m-0 p-0">Titre : {{currentProduit.titre}}</p>
+                            <span>Publiée le {{currentProduit.dateCrea}}</span>
+                        </div>
+                        <div class="col-lg-12 pt-2">
+                            <h5>Détails</h5>
+                            <span>{{currentProduit.description}}</span>
+                            <hr class="m-0 pt-2 mt-2">
+                            <div class="col-lg-12">
+                                <p class="m-0 p-0 price-pro"> Prix : {{currentProduit.prix}} DT</p>
+                                <hr class="p-0 m-0">
+                            </div>
+                        </div>
+                        <div class="col-lg-12" *ngIf="currentProduit.cat==1">
+                            <p class="tag-section">
+                                <strong>Dimensions : </strong>
+                                {{currentProduit.hauteur}} cm * {{currentProduit.largeur}} cm.
+                            </p>
+
+                            <p class="tag-section">
+                                <strong>Artiste : </strong>
+                                {{currentProduit.idArtiste}}
+                            </p>
+                        </div>
+                        <div class="col-lg-12">
+                            <h6>Quantity :</h6>
+                            <input type="number" class="form-control text-center w-100" value="1">
+                        </div>
+                        <div class="col-lg-12 mt-3">
+                            <div class="row">
+                                <div class="col-lg-6 pb-2">
+                                    <button (click)="opensig(id,'service')" class="btn btn-danger w-100">Signaler</button>
+                                </div>
+                                <div class="col-lg-6">
+                                    <button  (click)="openDialog()" [disabled]="currentProduit.etat!='dispo'" class="btn btn-success w-100">Commander</button>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-danger" *ngIf="currentProduit.etat!='dispo'">Ce service est indisponible !!</p>
+                        <div class="row m-12">
+                            <div class="col-lg-8">
+                                <h2>Ajouter un commentaire</h2>
+                                <form [formGroup]="FormAjcomm" (ngSubmit)="onSubmit()">
+                                    <input type="text" placeholder="Ecrivez un commentaire ..." class="form-control form-control-lg" formControlName="description" /> 
+                                    <button class="btn btn-warning">Ajouter</button>
+                                </form>
+                                <div> 
+                                    <h4> les commentaires</h4>
+                                    <div class="form-control" *ngFor="let c of commentaires">{{c.description}}
+                                        <button *ngIf="idc==c.idClient" class="btn btn-danger" (click)="supprimerComm(c.id)">Supprimer ce commentaire</button>
+                                        <button *ngIf="idc==c.idClient" class="btn btn-warning" (click)="opendcomm(c.id)">Modifier ce commentaire</button>
+                                        <button class="btn btn-dark" (click)="opensig(c.id,'commentaire')">Signaler ce commentaire</button>
+                                    </div>
+                                    <div [hidden]="mod">
+                                        <input type="text" id="modifcomm" #modifcomm><button (click)="modifierComm(modifcomm.value)">modifier</button>
+                                    </div>
+                                    <div [hidden]="sig">
+                                        <input type="text" id="sigcomm" #sigcomm><button (click)="signaler(sigcomm.value)">signaler</button>
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<h1 mat-dialog-title style="text-align:center;">Authentification</h1>
+<mat-dialog-content>
+    <div class="example-container text-center mt-6">
+    <form [formGroup]="formAuthentication" (ngSubmit)="onSubmit();">
+        <mat-form-field appearance="fill">
+            <mat-label>Login: </mat-label>
+            <input matInput placeholder="exemple@example.com/nom.." formControlName="login" required>
+          </mat-form-field>
+          <mat-error *ngIf="login.invalid && login.touched" class="alert alert-danger">
+            Le login est obligatoire !
+        </mat-error>
+<br>
+        <mat-form-field appearance="fill">
+          <mat-label>Mot de passe: </mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'"formControlName="pwd" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-error *ngIf="pwd.invalid && pwd.touched" class="alert alert-danger">
+            Le mot de passe est obligatoire !
+        </mat-error>
+<br>
+        <button type="submit"[disabled]="formAuthentication.invalid" class="btn btn-outline-success">Enregistrer</button>
+    </form>
+        </div>
+        <div class="alert alert-danger" *ngIf="msg!=''">
+          {{msg}}
+        </div>
+</mat-dialog-content>
+<mat-dialog-actions  align="center">
+    <button mat-button (click)="onNoClick()">Annuler</button>
+</mat-dialog-actions>
